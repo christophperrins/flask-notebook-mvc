@@ -15,4 +15,4 @@ class AlchemyEncoder(json.JSONEncoder):
                     pass
         return fields
 
-from controller import note_controller
+from controller import note_controller, notebook_controller

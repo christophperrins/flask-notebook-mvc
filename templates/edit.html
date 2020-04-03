@@ -2,7 +2,7 @@
 {% block body_content %}
 
 <h3>Edit note:</h3>
-    <form method="POST" action = {{ url_for ( 'update_note') }}>
+    <form method="POST" action = {{ url_for ( 'update_note', notebook_id=notebook_id) }}>
         <h4>Id:</h4>
         <input name="id" value = "{{note.id}}" readonly/>
         <h4>Text:</h4>

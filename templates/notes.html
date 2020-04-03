@@ -1,10 +1,13 @@
 {% extends "layout.html" %}
 {% block body_content %}
 
+<a href={{url_for("get_notebooks")}}>Back to Notebooks</a>
+
 <h3>Add Note:</h3>
 
-<form method="POST" action = {{ url_for ( "add_note" ) }}>
+<form method="POST" action = {{ url_for ( "add_note", notebook_id= notebook_id ) }}>
     <input type="text" name="text"/>
+    <input type="number" name="notebook_id" value="{{notebook_id}}" readonly hidden/>
     <input type="submit"/>
 </form>
 
@@ -12,7 +15,7 @@
 <h3>Notes:</h3>
 <ul>
     {% for note in notes %}
-        <a href= {{ url_for( "view__single_note", note_id = note.id ) }}><li> {{ note.text }} </li></a>
+        <a href= {{ url_for( "view_single_note", notebook_id=notebook_id, note_id = note.id ) }}><li> {{ note.text }} </li></a>
     {% endfor %}
 </ul>
 

@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+{% block body_content %}
+
+<h3>Add Notebook:</h3>
+
+<form method="POST" action = {{ url_for ( "add_notebook" )  }}>
+    <input type="text" name="title"/>
+    <input type="submit"/>
+</form>
+
+
+<h3>Notebooks:</h3>
+<ul>
+    {% for notebook in notebooks %}
+        <a href= {{ url_for( "get_notebook_by_id", notebook_id= notebook.id ) }}><li> {{ notebook.title }} </li></a>
+    {% endfor %}
+</ul>
+
+{% endblock %}
